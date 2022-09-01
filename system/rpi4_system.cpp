@@ -7,6 +7,7 @@
 GPIO_Typedef* REG_GPIO;
 PWM_Typedef*  REG_PWM0;
 PWM_Typedef*  REG_PWM1;
+CLK_Typedef*  REG_CLK;
 
 uint8_t rpi4_init(void){
 	int fd;
@@ -19,6 +20,7 @@ uint8_t rpi4_init(void){
 	REG_GPIO = (GPIO_Typedef*) mmap(NULL, GPIO_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, GPIO_BASE);
 	REG_PWM0 = (PWM_Typedef*)  mmap(NULL, GPIO_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, PWM0_BASE);
 	REG_PWM1 = (PWM_Typedef*)  mmap(NULL, GPIO_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, PWM1_BASE);
+	REG_CLK  = (CLK_Typedef*)  mmap(NULL, GPIO_SIZE, PROT_READ|PROT_WRITE, MAP_SHARED, fd, CLK_BASE);
 	return 0;
 }
 

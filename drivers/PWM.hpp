@@ -7,7 +7,7 @@ class PWM{
 private:
     uint8_t pin;
     double freq;
-    const int clock_source = 100000000;
+    const int clock_source = 25000000;
 public:
     PWM(uint8_t _pin, double _freq);
     double write(double duty);
