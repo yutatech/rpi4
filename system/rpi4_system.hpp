@@ -7,8 +7,8 @@
 #include "rpi4_message.hpp"
 #include "iostream"
 
-uint8_t rpi4_init(void);
-uint8_t rpi4_setGpioFunction(uint8_t pin, GPIO_Function alt);
+uint8_t RPI4_Init(void);
+uint8_t RPI4_SetGpioFunction(uint8_t pin, GPIO_Function alt);
 
 extern GPIO_Typedef* REG_GPIO;
 extern PWM_Typedef*  REG_PWM0;

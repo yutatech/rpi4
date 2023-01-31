@@ -12,6 +12,6 @@ enum class CLKSRC : uint8_t{
     HDMI = 7        // ?MHz
 };
 
-void rpi4_clock_config(uint32_t &reg_ctl, uint32_t &reg_div, CLKSRC src, double div, uint8_t mash);
+void RPI4_ClockConfig(uint32_t &reg_ctl, uint32_t &reg_div, CLKSRC src, double div, uint8_t mash);
 
 #endif

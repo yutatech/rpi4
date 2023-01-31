@@ -7,24 +7,24 @@ PWM::PWM(uint8_t _pin, double _freq) : pin(_pin), freq(_freq) {
         case 12: case 13: case 18: case 19: case 40: case 41: case 45:
             break;
         default:
-            sendMessage("GPIO" + std::to_string(pin) + " has no PWM function", MessageLevel::error);
+            RPI4_Message("GPIO" + std::to_string(pin) + " has no PWM function", MessageLevel::error);
             return;
     }
 
     switch (pin){
         case 12: case 13: case 40: case 41: case 45:
-            rpi4_setGpioFunction(pin, GPIO_Function::ALT0);
+            RPI4_SetGpioFunction(pin, GPIO_Function::ALT0);
             break;
         case 18: case 19:
-            rpi4_setGpioFunction(pin, GPIO_Function::ALT5);
+            RPI4_SetGpioFunction(pin, GPIO_Function::ALT5);
             break;
     }
 
-    setFrequency(freq);
+    SetFrequency(freq);
 
 };
 
-double PWM::write(double duty){
+double PWM::Write(double duty){
     uint32_t dat = clock_source * duty / freq;
 
     switch (pin){
@@ -51,11 +51,11 @@ double PWM::write(double duty){
     return freq;
 }
 
-double PWM::setFrequency(double _freq){
+double PWM::SetFrequency(double _freq){
     freq = _freq;
     uint32_t rng = clock_source / freq;
 
-    rpi4_clock_config(REG_CLK->CM_PWMCTL, REG_CLK->CM_PWMDIV, CLKSRC::OSC, 2.16, 1); // set pwm source clock frequency to 25MHz
+    RPI4_ClockConfig(REG_CLK->CM_PWMCTL, REG_CLK->CM_PWMDIV, CLKSRC::OSC, 2.16, 1); // set pwm source clock frequency to 25MHz
     
     switch (pin){
         case 12:

@@ -10,10 +10,10 @@ private:
     const int clock_source = 25000000;
 public:
     PWM(uint8_t _pin, double _freq);
-    double write(double duty);
-    double setFrequency(double _freq);
+    double Write(double duty);
+    double SetFrequency(double _freq);
     double operator = (double duty){
-        return write(duty);
+        return Write(duty);
     }
 };
 

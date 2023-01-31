@@ -15,11 +15,11 @@ private:
     uint8_t pin;
 public:
     GPIO(uint8_t _pin, PinMode mode);
-    bool read();
-    bool write(bool output);
-    void pinMode(PinMode mode);
+    bool Read();
+    bool Write(bool output);
+    void SetPinMode(PinMode mode);
     bool operator = (bool output){
-        return write(output);
+        return Write(output);
     }
 };
 

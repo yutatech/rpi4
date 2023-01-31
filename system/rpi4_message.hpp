@@ -9,7 +9,7 @@ enum class MessageLevel{
     info
 };
 
-void sendMessage(std::string message, MessageLevel lebel);
-void sendMessage(std::string message);
+void RPI4_Message(std::string RPI4_Message, MessageLevel lebel);
+void RPI4_Message(std::string RPI4_Message);
 
 #endif
